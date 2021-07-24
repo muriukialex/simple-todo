@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="jquery.min.js.download"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>todoApp</title>
+</head>
+<body>
+    <h1>To Do</h1>
+    <div class="container">
+        <div class="textInput">
+            <label>Description 📃</label>
+            <br>
+            <textarea id="desc" name="textarea" rows="6" cols="25" placeholder="My task today is"></textarea>
+            <br>
+            <button id="button">Add+</button>
+        </div>
+        <div class="details">
+            <ol></ol>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            const button = document.querySelector("#button");
+            button.addEventListener("click",function(){
+                if(document.querySelector("#desc").value.length === 0){ 
+                    onsole.log("aai");
+                 }else{
+                    let taskDescription = document.querySelector("#desc").value;
+                    localStorage.setItem('taskDesc',taskDescription);
+
+                    console.log(localStorage.getItem("taskDesc"));
+
+                    let li = document.createElement("li");
+                    document.querySelector("ol").append(li);
+                    li.innerHTML = localStorage.getItem("taskDesc");
+
+                    document.querySelector("#desc").value = "";
+                 }
+            })
+        })
+    </script>
+</body>
+</html>
